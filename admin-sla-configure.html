@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="admin-sla-configure.css">
+  <script src="admin-sla-configure.js" defer></script>
+  <title>FixFlow – Cấu hình SLA</title>
+</head>
+<body class="ung-dung-thong-nhat">
+  <aside class="thanh-ben-chinh">
+    <div class="thuong-hieu-chinh"><span class="bieu-tuong-thuong-hieu-chinh" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><strong>FixFlow</strong></div>
+    <p class="don-vi-su-dung">Quản trị viên</p>
+    <p class="nhan-muc-chinh">Quản lý hệ thống</p>
+    <nav class="dieu-huong-chinh" aria-label="Trang độc lập"><span class="nhan-trang-doc-lap">⏱️ <span>Cấu hình SLA</span></span></nav>
+    <div class="ho-so-nguoi-dung"><span class="anh-dai-dien-nguoi-dung">NQ</span><span><strong>Ngọc Quỳnh</strong><small>ADMIN</small></span></div>
+  </aside>
+  <main class="noi-dung-chinh-ung-dung">
+    <header class="thanh-cong-cu-chinh">
+      <label class="o-tim-kiem-chinh"><span aria-hidden="true">⌕</span><input type="search" placeholder="Tìm cấu hình SLA..." aria-label="Tìm kiếm"></label>
+      <div class="nguoi-dung-hien-tai"><button type="button" aria-label="Thông báo">♧</button><span class="anh-dai-dien-nguoi-dung">NQ</span><strong>Ngọc Quỳnh Admin</strong></div>
+    </header>
+    <div class="vung-hien-thi-trang"><div class="man-hinh man-hinh-trang29">
+
+	
+
+	<div class="noi-dung-chinh noi-dung-trang-con">
+		
+		<section class="man-hinh-ung-dung">
+			<p class="trang-thai-rong" id="dataLoadStatus" role="status" aria-live="polite" hidden></p>
+			<div class="man-hinh-tieu-de"><div><p class="nhan-de">THỜI GIAN PHẢN HỒI & XỬ LÝ</p><h1><span class="giao-dien-tieu-de-bieu-tuong bieu-tuong-ho-phach" aria-hidden="true">⏱</span>Cấu hình SLA</h1><p>Thiết lập thời hạn phản hồi và giải quyết theo mức độ ưu tiên.</p></div><button class="chinh-thao-tac" id="saveSla" type="button">Lưu cấu hình</button></div>
+			<div class="sla-thong-bao"><span class="thong-tin-bieu-tuong">ⓘ</span><p><strong>Cam kết chất lượng dịch vụ</strong><br>Thời gian được tính trong giờ làm việc (08:00 – 17:00, Thứ 2 – Thứ 6). Ticket quá hạn sẽ được đánh dấu để quản trị viên theo dõi.</p></div>
+			<div class="bang-dieu-khien-the sla-bang-dieu-khien">
+				<div class="bang-dieu-khien-thanh-cong-cu"><div><h2><span class="giao-dien-tieu-de-bieu-tuong bieu-tuong-ho-phach" aria-hidden="true">◷</span>Thời hạn theo mức độ ưu tiên</h2><p>Cấu hình thời gian phản hồi đầu tiên và thời gian giải quyết tối đa.</p></div><span class="cau-hinh-dang-hoat-dong"><i></i> Đang áp dụng</span></div>
+				<div class="bang-cuon"><table class="bang-du-lieu sla-bang"><thead><tr><th>Mức độ ưu tiên</th><th>Thời gian phản hồi</th><th>Thời gian giải quyết</th><th>Thông báo trước hạn</th><th></th></tr></thead><tbody>
+					<tr><td><span class="uu-tien-nhan uu-tien-nguy-cap"><i></i> Khẩn cấp</span></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="15" data-sla-field="response"><span>phút</span></label></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="2" data-sla-field="resolution"><span>giờ</span></label></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="10" data-sla-field="warning"><span>phút</span></label></td><td><span class="sla-goi-y">Sự cố nghiêm trọng</span></td></tr>
+					<tr><td><span class="uu-tien-nhan uu-tien-cao"><i></i> Cao</span></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="30" data-sla-field="response"><span>phút</span></label></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="4" data-sla-field="resolution"><span>giờ</span></label></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="30" data-sla-field="warning"><span>phút</span></label></td><td><span class="sla-goi-y">Ảnh hưởng hoạt động</span></td></tr>
+					<tr><td><span class="uu-tien-nhan uu-tien-trung-binh"><i></i> Trung bình</span></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="2" data-sla-field="response"><span>giờ</span></label></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="8" data-sla-field="resolution"><span>giờ</span></label></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="1" data-sla-field="warning"><span>giờ</span></label></td><td><span class="sla-goi-y">Ảnh hưởng một phần</span></td></tr>
+					<tr><td><span class="uu-tien-nhan uu-tien-thap"><i></i> Thấp</span></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="4" data-sla-field="response"><span>giờ</span></label></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="2" data-sla-field="resolution"><span>ngày</span></label></td><td><label class="thoi-luong-o-nhap"><input type="number" min="1" value="4" data-sla-field="warning"><span>giờ</span></label></td><td><span class="sla-goi-y">Yêu cầu thông thường</span></td></tr>
+				</tbody></table></div>
+			</div>
+			<div class="sla-phia-duoi-luoi">
+				<article class="bang-dieu-khien-the thong-tin-sla"><div class="muc-bieu-tuong xanh-duong-bieu-tuong">◷</div><div><h2>Giờ làm việc</h2><p>Thứ 2 – Thứ 6 · 08:00 – 17:00</p><small>Không bao gồm ngày nghỉ lễ</small></div><span class="cai-dat-nhan">Đang bật</span></article>
+				<article class="bang-dieu-khien-the thong-tin-sla"><div class="muc-bieu-tuong xanh-la-bieu-tuong">♧</div><div><h2>Tự động cảnh báo</h2><p>Gửi thông báo khi sắp đến hạn SLA</p><small>Thông báo cho kỹ thuật viên phụ trách</small></div><label class="cong-tac-dieu-khien"><input id="slaNotifications" type="checkbox" checked aria-label="Bật cảnh báo SLA"><span></span></label></article>
+			</div>
+			<p class="luu-phan-hoi" id="slaFeedback" role="status" aria-live="polite"></p>
+		</section>
+	</div>
+	
+
+  </div></div>
+  </main>
+  
