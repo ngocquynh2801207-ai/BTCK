@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="admin-issue-category-manage.css">
+  <script src="admin-issue-category-manage.js" defer></script>
+  <title>FixFlow – Quản lý danh mục lỗi</title>
+</head>
+<body class="ung-dung-thong-nhat">
+  <aside class="thanh-ben-chinh">
+    <div class="thuong-hieu-chinh"><span class="bieu-tuong-thuong-hieu-chinh" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><strong>FixFlow</strong></div>
+    <p class="don-vi-su-dung">Quản trị viên</p>
+    <p class="nhan-muc-chinh">Quản lý hệ thống</p>
+    <nav class="dieu-huong-chinh" aria-label="Trang độc lập"><span class="nhan-trang-doc-lap">🧰 <span>Danh mục lỗi</span></span></nav>
+    <div class="ho-so-nguoi-dung"><span class="anh-dai-dien-nguoi-dung">NQ</span><span><strong>Ngọc Quỳnh</strong><small>ADMIN</small></span></div>
+  </aside>
+  <main class="noi-dung-chinh-ung-dung">
+    <header class="thanh-cong-cu-chinh">
+      <label class="o-tim-kiem-chinh"><span aria-hidden="true">⌕</span><input type="search" placeholder="Tìm danh mục lỗi..." aria-label="Tìm kiếm"></label>
+      <div class="nguoi-dung-hien-tai"><button type="button" aria-label="Thông báo">♧</button><span class="anh-dai-dien-nguoi-dung">NQ</span><strong>Ngọc Quỳnh Admin</strong></div>
+    </header>
+    <div class="vung-hien-thi-trang"><div class="man-hinh man-hinh-trang27">
+
+	
+
+	<div class="noi-dung-chinh noi-dung-trang-con">
+		
+		<section class="man-hinh-ung-dung danh-muc-man-hinh">
+			<p class="trang-thai-rong" id="dataLoadStatus" role="status" aria-live="polite" hidden></p>
+			<div class="danh-muc-trang-tieu-de">
+				<div><p class="danh-muc-nhan-de">DANH MỤC & PHÂN LOẠI</p><h1><span class="giao-dien-tieu-de-bieu-tuong bieu-tuong-tim" aria-hidden="true">🧰</span>Quản lý danh mục lỗi</h1><p id="categoryPageSummary">Quản lý các nhóm sự cố để phân loại và xử lý ticket nhất quán.</p></div>
+				<button class="danh-muc-chinh-nut" id="addCategory" type="button"><span>＋</span> Thêm danh mục</button>
+			</div>
+			<div class="khu-vuc-danh-muc">
+				<aside class="danh-muc-bang-dieu-khien danh-muc-cay-bang-dieu-khien">
+					<label class="danh-muc-tim-kiem"><span aria-hidden="true">⌕</span><input id="categorySearch" type="search" placeholder="Tìm danh mục..." aria-label="Tìm danh mục"></label>
+					<div class="danh-muc-cay-tieu-de"><span><span class="giao-dien-tieu-de-bieu-tuong bieu-tuong-tim" aria-hidden="true">◇</span>Danh mục lỗi</span><strong id="categoryTotal">0</strong></div>
+					<div class="danh-muc-cay" id="categoryTree" aria-label="Danh sách danh mục"></div>
+					<p class="danh-muc-trong" id="categoryEmpty" hidden>Không tìm thấy danh mục phù hợp.</p>
+				</aside>
+				<section class="danh-muc-bang-dieu-khien danh-muc-chinh-sua-bang-dieu-khien" aria-labelledby="categoryEditorTitle" hidden>
+					<div class="danh-muc-bang-dieu-khien-tieu-de"><div><p class="danh-muc-nhan-de">CHI TIẾT</p><h2 id="categoryEditorTitle"><span class="giao-dien-tieu-de-bieu-tuong bieu-tuong-xanh-duong" aria-hidden="true">✎</span>Chỉnh sửa danh mục</h2></div><span class="danh-muc-yeu-cau-nhan"><strong id="categoryTicketCount">0</strong> ticket liên quan</span></div>
+					<form id="categoryEditForm">
+						<label class="danh-muc-truong">Tên danh mục<input id="editCategoryName" name="name" maxlength="60" required></label>
+						<label class="danh-muc-truong">Danh mục cha<select id="editCategoryParent" name="parentId"></select></label>
+						<label class="danh-muc-truong">Mô tả<textarea id="editCategoryDescription" name="description" maxlength="180" rows="3"></textarea></label>
+						<div class="danh-muc-truong-hang">
+							<label class="danh-muc-truong">Biểu tượng<select id="editCategoryIcon" name="icon"><option value="❄">❄ Bông tuyết</option><option value="⌘">⌘ Mạng</option><option value="▣">▣ Thiết bị</option><option value="⚡">⚡ Điện</option><option value="♙">♙ Tài khoản</option><option value="◇">◇ Khác</option></select></label>
+							<label class="danh-muc-truong">Màu nhận diện<select id="editCategoryColor" name="color"><option value="#2563eb">● Xanh dương</option><option value="#18a65e">● Xanh lá</option><option value="#f2a331">● Vàng</option><option value="#8b5cf6">● Tím</option><option value="#ef5b5b">● Đỏ</option></select></label>
+						</div>
+						<label class="danh-muc-chuyen-doi"><span><strong>Cho phép AI tự động phân loại</strong><small>Gợi ý danh mục phù hợp dựa trên nội dung ticket.</small></span><input id="editCategoryAutoClassify" name="autoClassify" type="checkbox"><i aria-hidden="true"></i></label>
+						<div class="danh-muc-chinh-sua-thao-tac"><button class="danh-muc-xoa-nut" id="deleteCategory" type="button">Xóa danh mục</button><button class="danh-muc-luu-nut" type="submit">Lưu thay đổi</button></div>
+						<p class="danh-muc-phan-hoi" id="editCategoryFeedback" role="status" aria-live="polite"></p>
+					</form>
+				</section>
+				<aside class="danh-muc-bang-dieu-khien danh-muc-tao-bang-dieu-khien" aria-labelledby="categoryCreateTitle" hidden>
+					<div class="danh-muc-bang-dieu-khien-tieu-de"><div><p class="danh-muc-nhan-de">BẮT ĐẦU MỚI</p><h2 id="categoryCreateTitle"><span class="giao-dien-tieu-de-bieu-tuong bieu-tuong-xanh-la" aria-hidden="true">＋</span>Thêm danh mục</h2></div><button class="bieu-tuong-tao-danh-muc" id="closeCategoryCreate" type="button" aria-label="Đóng biểu mẫu">×</button></div>
+					<form id="categoryCreateForm">
+						<label class="danh-muc-truong">Tên danh mục<input name="name" maxlength="60" required placeholder="Ví dụ: Nguồn điện"></label>
+						<label class="danh-muc-truong">Danh mục cha<select name="parentId"></select></label>
+						<label class="danh-muc-truong">Mô tả<textarea name="description" maxlength="180" rows="3" placeholder="Mô tả ngắn gọn..."></textarea></label>
+						<label class="danh-muc-truong">Biểu tượng<select name="icon"><option value="⚡">⚡ Điện</option><option value="❄">❄ Bông tuyết</option><option value="⌘">⌘ Mạng</option><option value="▣">▣ Thiết bị</option><option value="♙">♙ Tài khoản</option><option value="◇">◇ Khác</option></select></label>
+						<label class="danh-muc-truong">Màu nhận diện<select name="color"><option value="#f2a331">● Vàng</option><option value="#2563eb">● Xanh dương</option><option value="#18a65e">● Xanh lá</option><option value="#8b5cf6">● Tím</option><option value="#ef5b5b">● Đỏ</option></select></label>
+						<button class="danh-muc-luu-nut danh-muc-tao-nut" type="submit">Tạo danh mục</button>
+						<p class="danh-muc-phan-hoi" id="createCategoryFeedback" role="status" aria-live="polite"></p>
+					</form>
+				</aside>
+			</div>
+			<section class="danh-muc-bang-dieu-khien danh-muc-ai-bang-dieu-khien" aria-labelledby="categoryAiTitle">
+				<div class="danh-muc-bang-dieu-khien-tieu-de">
+					<div><p class="danh-muc-nhan-de">TRỢ LÝ PHÂN LOẠI</p><h2 id="categoryAiTitle"><span class="giao-dien-tieu-de-bieu-tuong bieu-tuong-tim" aria-hidden="true">✦</span>AI tự động phân loại ticket</h2><p class="danh-muc-ai-mo-ta">Nhập mô tả sự cố để nhận gợi ý danh mục phù hợp.</p></div>
+					<span class="danh-muc-ai-nhan"><span aria-hidden="true">✦</span> Phân loại tại trình duyệt</span>
+				</div>
+				<form id="ticketClassifierForm">
+					<label class="danh-muc-truong" for="ticketClassifierText">Mô tả ticket<textarea id="ticketClassifierText" name="description" rows="3" maxlength="1000" placeholder="Ví dụ: Máy tính không kết nối được Wi-Fi tại phòng làm việc..." required></textarea></label>
+					<div class="danh-muc-ai-thao-tac"><small id="categoryAiMode">Nút phân loại sẽ xét các danh mục đang hoạt động.</small><button class="danh-muc-luu-nut" type="submit">✦ Phân loại ticket</button></div>
+				</form>
+				<div class="danh-muc-phan-loai-ket-qua" id="categoryClassificationResult" role="status" aria-live="polite" hidden></div>
+			</section>
+		</section>
+	</div>
+	
+
+  </div></div>
+  </main>
+  
