@@ -218,6 +218,8 @@ function initializeCategories(screen, categories) {
     selectedId = button.dataset.categoryId;
     renderEditor();
   });
+
+  
   editForm.addEventListener('submit', event => {
     event.preventDefault();
     const category = getCategory(selectedId);
@@ -277,6 +279,8 @@ function initializeCategories(screen, categories) {
     createPanel.hidden = true;
     syncWorkspace();
   });
+
+
   classifierForm.addEventListener('submit', event => {
     event.preventDefault();
     const description = screen.querySelector('#ticketClassifierText').value.trim().toLocaleLowerCase('vi');
