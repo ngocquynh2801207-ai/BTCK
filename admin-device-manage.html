@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="admin-device-manage.css">
+  <script src="admin-device-manage.js" defer></script>
+  <title>FixFlow – Quản lý thiết bị</title>
+</head>
+<body class="ung-dung-thong-nhat">
+  <aside class="thanh-ben-chinh">
+    <div class="thuong-hieu-chinh"><span class="bieu-tuong-thuong-hieu-chinh" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><strong>FixFlow</strong></div>
+    <p class="don-vi-su-dung">Quản trị </p>
+    <p class="nhan-muc-chinh">Quản lý hệ thống</p>
+    <nav class="dieu-huong-chinh" aria-label="Trang độc lập"><span class="nhan-trang-doc-lap">🖥️ <span>Thiết bị</span></span></nav>
+    <div class="ho-so-nguoi-dung"><span class="anh-dai-dien-nguoi-dung">NQ</span><span><strong>Ngọc Quỳnh</strong><small>ADMIN</small></span></div>
+  </aside>
+  <main class="noi-dung-chinh-ung-dung">
+    <header class="thanh-cong-cu-chinh">
+      <label class="o-tim-kiem-chinh"><span aria-hidden="true">⌕</span><input type="search" placeholder="Tìm thiết bị..." aria-label="Tìm kiếm"></label>
+      <div class="nguoi-dung-hien-tai"><button type="button" aria-label="Thông báo">♧</button><span class="anh-dai-dien-nguoi-dung">NQ</span><strong>Ngọc Quỳnh Admin</strong></div>
+    </header>
+    <div class="vung-hien-thi-trang"><div class="man-hinh man-hinh-trang26">
+
+  
+
+  <div class="noi-dung-chinh noi-dung-trang-con">
+    
+
+    <section class="man-hinh-ung-dung man-hinh-thiet-bi">
+      <p class="trang-thai-rong" id="dataLoadStatus" role="status" aria-live="polite" hidden></p>
+      <div class="man-hinh-tieu-de"><div><p class="nhan-de">QUẢN TRỊ HỆ THỐNG</p><h1><span class="giao-dien-tieu-de-bieu-tuong bieu-tuong-xanh-la" aria-hidden="true">▣</span>Quản lý thiết bị</h1><p><span id="totalDeviceCount">25</span> thiết bị trong toàn bộ hệ thống</p></div><button class="nut-them-thiet-bi" id="btnAdd" type="button">＋ Thêm thiết bị</button></div>
+      <div class="khu-vuc-ket-qua-thiet-bi">
+        <div class="thanh-bo-loc">
+          <div class="o-tim-thiet-bi"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="search" id="deviceSearch" placeholder="Tìm theo tên hoặc mã thiết bị..."></div>
+          <select id="filterType" aria-label="Lọc theo loại"><option value="">Tất cả loại</option><option>Điện lạnh</option><option>Mạng</option><option>Trình chiếu</option><option>Văn phòng</option><option>An ninh</option></select>
+          <select id="filterStatus" aria-label="Lọc theo trạng thái"><option value="">Tất cả trạng thái</option><option>Hoạt động</option><option>Bảo trì</option><option>Ngừng hoạt động</option></select>
+          <select id="filterLocation" aria-label="Lọc theo vị trí"><option value="">Tất cả vị trí</option><option>P.101 - Tòa A</option><option>P.201 - Tòa B</option><option>Hội trường</option><option>Phòng Giám đốc</option><option>Sân sau</option></select>
+          <button class="nut-loc" id="applyDeviceFilters" type="button">Bộ lọc</button>
+        </div>
+        <div class="cac-the-trang-thai">
+          <button class="muc-the dang-chon" type="button" data-filter=""><span class="dem-trang-thai" data-status="all">25</span> tất cả</button>
+          <button class="muc-the" type="button" data-filter="Hoạt động"><span class="cham-trang-thai xanh"></span><span class="dem-trang-thai" data-status="Hoạt động">15</span> hoạt động</button>
+          <button class="muc-the" type="button" data-filter="Bảo trì"><span class="cham-trang-thai cam"></span><span class="dem-trang-thai" data-status="Bảo trì">8</span> bảo trì</button>
+          <button class="muc-the" type="button" data-filter="Ngừng hoạt động"><span class="cham-trang-thai do"></span><span class="dem-trang-thai" data-status="Ngừng hoạt động">2</span> ngừng hoạt động</button>
+        </div>
+        <div class="thiet-bi-danh-sach-bang-dieu-khien">
+          <div class="thanh-cong-cu-danh-sach-thiet-bi"><div><h2><span class="giao-dien-tieu-de-bieu-tuong bieu-tuong-xanh-duong" aria-hidden="true">☷</span>Danh sách thiết bị</h2><p id="deviceResultCount">Đang hiển thị thiết bị</p></div><div class="chuyen-che-do-xem"><button class="nut-che-do-xem dang-chon" id="btnList" type="button" aria-pressed="true">☷ Danh sách</button><button class="nut-che-do-xem" id="btnCard" type="button" aria-pressed="false">▦ Thẻ</button></div></div>
+          <div class="khung-bang" id="tableView"><table><thead><tr><th>Tên thiết bị</th><th>Loại</th><th>Vị trí</th><th>Trạng thái</th><th>Ngày mua</th><th>Bảo hành</th><th>Lượt xem</th><th></th></tr></thead><tbody id="tableBody"></tbody></table><p class="trang-thai-rong" id="deviceEmpty" hidden>Không tìm thấy thiết bị phù hợp.</p></div>
+          <div class="luoi-the-thiet-bi" id="cardView" hidden></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="lop-phu-hop-thoai" id="modalOverlay" aria-hidden="true"><div class="hop-thoai" role="dialog" aria-modal="true" aria-labelledby="deviceModalTitle">
+    <div class="dau-hop-thoai"><h2 id="deviceModalTitle">Thêm thiết bị mới</h2><button class="nut-dong-hop-thoai" id="modalClose" type="button" aria-label="Đóng">✕</button></div>
+    <form class="noi-dung-hop-thoai" id="deviceForm">
+      <div class="hang-truong"><div class="nhom-truong"><label for="deviceId">Mã thiết bị</label><input type="text" id="deviceId" readonly></div><div class="nhom-truong"><label for="deviceName">Tên thiết bị</label><input type="text" id="deviceName" placeholder="Nhập tên thiết bị..." required></div></div>
+      <div class="hang-truong"><div class="nhom-truong"><label for="deviceType">Loại</label><select id="deviceType"><option>Điện lạnh</option><option>Mạng</option><option>Trình chiếu</option><option>Văn phòng</option><option>An ninh</option></select></div><div class="nhom-truong"><label for="deviceLocation">Vị trí</label><select id="deviceLocation"><option>P.101 - Tòa A</option><option>P.201 - Tòa B</option><option>Hội trường</option><option>Phòng Giám đốc</option><option>Sân sau</option></select></div></div>
+      <div class="hang-truong"><div class="nhom-truong"><label for="deviceStatus">Trạng thái</label><select id="deviceStatus"><option>Hoạt động</option><option>Bảo trì</option><option>Ngừng hoạt động</option></select></div><div class="nhom-truong"><label for="devicePurchaseDate">Ngày mua</label><input type="month" id="devicePurchaseDate" required></div></div>
+      <div class="hang-truong"><div class="nhom-truong"><label for="deviceWarranty">Bảo hành</label><select id="deviceWarranty"><option>Chưa cập nhật</option><option>Còn bảo hành</option><option>Còn 3 tháng</option><option>Còn 4 tháng</option><option>Hết hạn</option></select></div></div>
+      <div class="cum-nut-hop-thoai"><button class="nut-huy" type="button">Hủy</button><button class="nut-luu" type="submit">Lưu</button></div>
+    </form>
+  </div></div>
+  
+
+  </div></div>
+  </main>
+  
